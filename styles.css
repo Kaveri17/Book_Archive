@@ -27,7 +27,7 @@ h2,h3,h4,p,li{
 .navbars{
     width: 100%;
     position: fixed;
-    background-color: #8c2e3e ;
+    background-color: rgb(140, 46, 62) ;
     z-index: 1;
     display: flex;    
 }
@@ -46,7 +46,8 @@ h2,h3,h4,p,li{
     padding: 10px 0;
 }
 .logo h1{
-    color: #d5a68a;
+    /* color: #d5a68a; */
+    color: white;
     font-size: 30px;
     font-weight: 700;
     line-height: 28px;
@@ -163,6 +164,7 @@ h2,h3,h4,p,li{
     background-color: rgba(255, 244, 238,0.8);
     /* background-color:#c67343; */
 }
+
 .titles{
     padding: 1.2rem;
     /* color: #ff5a5a; */
@@ -186,6 +188,15 @@ h2,h3,h4,p,li{
 }
 .bimage{
     height: 70%;
+}
+.nbook{
+    /* border-color: #342e2a; */
+    /* box-shadow: 0 3px 25px 0px rgb(193, 192, 192); */
+}
+.nbook a{
+    text-decoration: none;
+    color: black;  
+
 }
 .nbook:hover{
     transform: scale(1.1) ;
@@ -257,7 +268,12 @@ h2,h3,h4,p,li{
     font-size: 1.05rem;
     font-weight: 400;
     letter-spacing: 1px;
-   
+    border-radius: 5px;     
+}
+.sale-content button:hover{
+    background-color: rgb(120, 1, 43);
+    cursor: pointer; 
+    transition: .7s all;   
 }
 
 /* GIFT*/
@@ -291,8 +307,15 @@ h2,h3,h4,p,li{
     color: white;
     font-size: 1.05rem;
     font-weight: 400;
-    letter-spacing: 1px;   
+    letter-spacing: 1px;
+    border-radius: 5px;   
 }
+.gcontent button:hover{
+    background-color: rgb(120, 1, 43);
+    cursor: pointer; 
+    transition: .7s all;   
+}
+
 
 /* AUTHOR */
 .author{
@@ -345,7 +368,9 @@ h2,h3,h4,p,li{
     color: white;
     font-size: 1.05rem;
     font-weight: 400;
-    letter-spacing: 1px;   
+    letter-spacing: 1px; 
+    border-radius: 5px;   
+
 }
 
 /* FOOTER */
@@ -409,7 +434,8 @@ input[type=email]{
     cursor: pointer;
     color: #fff;
     line-height: 28px;
-    
+    /* border-radius: 5px;    */
+
     /* line-height: 21px; */
     /* letter-spacing: 2px; */
 }
@@ -564,7 +590,7 @@ input[type=email]{
     font-size: 15px;
 }
 .footer-title button{
-    background-color: #ffc845;    
+    /* background-color: #ffc845;     */
     padding: 9px 25px;
     font-size: 1rem;
     line-height: 26px;
