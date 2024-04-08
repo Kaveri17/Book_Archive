@@ -87,15 +87,15 @@ const Home = () => {
         </div> */}
         <div className="sale col-12">
             <div className="wrapper d-flex flex-column flex-lg-row align-items-stretch h-100 ps-3">
-                <div className="sale-content col-12 col-lg-5 d-flex flex-column justify-content-center align-items-center">
+                <div className="sale-content col-12 d-flex flex-column justify-content-center align-items-center">
                     <h2>Shop Wide Range Of Collections</h2>
                     <h1>BOOK FESTIVAL</h1>
                     <h3>ALL BOOKS ARE FLAT <span>50% OFF</span></h3>
-                    <button className="w-25 mt-2 p-2 border border-0">Shop Now</button>
+                    <button className="mt-2 px-4 py-2 border border-0">Shop Now</button>
                 </div>
-                <div className="sale-img col-12 col-lg-7 d-flex align-items-center justify-content-center overflow-hidden">
+                {/* <div className="sale-img col-12 col-lg-7 d-flex align-items-center justify-content-center overflow-hidden">
                     <img src="img/collection1.jpg" alt="sales" className="h-100 w-100"/>
-                </div>
+                </div> */}
             </div>
         </div>
 
