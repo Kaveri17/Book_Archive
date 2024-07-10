@@ -11,7 +11,7 @@ const Footer = () => {
                     <h1>
                         SUBSCRIBE TO OUR NEWS LETTER 
                     </h1>
-                    <form action="/">
+                    <form className='form1' action="/">
                         <input type="email" placeholder="Enter Your Email..."  autocomplete="nope" required />
                         <button>
                             Subscribe Now

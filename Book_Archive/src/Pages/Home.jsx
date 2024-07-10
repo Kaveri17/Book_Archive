@@ -1,8 +1,35 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import ProdutDetails from './ProdutDetails'
+import { Products } from './ProductStaticData'
+import axios from 'axios'
+import { API, IMG_URL } from '../config'
 
 const Home = () => {
+    const[products,setProducts]=useState([])
+    // const[loading,setLoading]=useState(true)
+
+    useEffect(()=>{
+        const fetchProduct=async()=>{
+            try{
+                const response=await axios.get(`${API}/allproduct`)
+                console.log("Fetched product:",response.data)
+                setProducts(response.data)
+                // console.log(response.data)
+                setLoading(false)
+            }
+            catch(err){
+                console.log(err)
+            }
+        }
+
+        // setTimeout(() => {
+        //     fetchProduct()
+        // }, 2000);
+        fetchProduct();
+    },[])
+    console.log("Products after fetcheproduct called:",products);
+
   return (
     <>
         {/* HOMEPAGE  */}
@@ -24,22 +51,26 @@ const Home = () => {
             <h1 className=" titles">
                 DAILY DEALS <i className="bi bi-stars  stars"></i> </h1>
             <div className="best-book d-flex flex-wrap justify-content-between py-3">
-                <div className="nbook d-flex flex-column col-12 col-md-5 col-xl-2">
-                    <Link to='/productdetails'>
-                        <img src="img/daily1.jpeg" alt="" className="bimage col-9 col-md-12 rounded"/>
-                        <ul className="binfo">
-                            {/* <!-- <li>Rating(optional)</li> --> */}
-                            <li>समर लभ</li>
-                            <li>by Subin Bhattarai</li>
-                            <li>Price: Rs.300</li>
-                        </ul>
-                    </Link>
-                </div>
-                <div className="nbook d-flex flex-column col-12 col-md-5 col-xl-2 ">
+                {
+                    products.map(product => {
+                        return <div className="nbook d-flex flex-column col-12 col-md-5 col-xl-2" key={product._id}>
+                            <Link to= {`/product/${product._id}`}>
+                                <img src={`${IMG_URL}/${product.img}`} alt={product.title} className="bimage col-9 col-md-12 rounded"/>
+                                <ul className="binfo">
+                                    <li>{product.title}</li>
+                                    <li>by {product.author}</li>
+                                    <li>Price: Rs.{product.price}</li>
+                                </ul>
+                            </Link>
+                        </div> 
+                    })
+
+                }
+                
+                {/* <div className="nbook d-flex flex-column col-12 col-md-5 col-xl-2 ">
                     <Link to='/productdetails'>
                         <img src="img/daily2.jpeg" alt="" className="bimage col-9 col-md-12 rounded"/>
                         <ul className="binfo">
-                            {/* <!-- <li>Rating(optional)</li> --> */}
                             <li>साया</li>
                             <li>by Subin Bhattarai</li>
                             <li>Price: Rs.300</li>
@@ -50,7 +81,6 @@ const Home = () => {
                     <Link to='/productdetails'>
                         <img src="img/daily4.jpg" alt="" className="bimage col-9 col-md-12 rounded"/>
                         <ul className="binfo">
-                            {/* <!-- <li>Rating(optional)</li> --> */}
                             <li>YOU'VE REACHED SAM</li>
                             <li>by Dustin Thao</li>
                             <li>Price: Rs.300</li>
@@ -61,13 +91,12 @@ const Home = () => {
                     <Link to='/productdetails'>
                         <img src="img/daily3.jpeg" alt="" className="bimage col-9 col-md-12 rounded"/>
                         <ul className="binfo">
-                            {/* <!-- <li>Rating(optional)</li> --> */}
                             <li>पल्पसा क्याफे </li>
                             <li>by Narayan Wagle</li>
                             <li>Price: Rs.300</li>
                         </ul>
                     </Link>
-                </div>
+                </div> */}
             </div>
         </div>
 
@@ -314,7 +343,7 @@ const Home = () => {
                     <h1><i className="bi bi-stars stars"></i>AUTHOR OF THE MONTH <i className="bi bi-stars stars"></i> </h1>
                     <h2>Author Name</h2>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum pariatur quas sequi asperiores est, quibusdam atque obcaecati? Tenetur, sunt accusantium possimus ea quidem facere error.</p>
-                    <button className="w-25 mt-1 p-2 border border-0"> Shop Now <span><i className="bi bi-arrow-right text-white"></i></span></button>
+                    <button className=" mt-1 p-2 border-0"> Shop Now <span><i className="bi bi-arrow-right text-white"></i></span></button>
                 </div>
             </div>
 
